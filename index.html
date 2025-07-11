@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Solution - MOSU | Virtual Try-On Technology</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8b5cf6', // Purple
+                        secondary: '#f97316', // Orange
+                        accent: '#fbbf24', // Amber/Gold
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-sans text-gray-800">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 navbar-solid z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center shadow-md">
+                            <span class="text-white font-bold text-lg">M</span>
+                        </div>
+                        <span class="text-xl font-bold text-gray-900 tracking-wide">MOSU</span>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-text text-gray-700 hover:text-primary transition duration-200 font-medium">Home</a>
+                    <a href="#about" class="nav-text text-gray-700 hover:text-primary transition duration-200 font-medium">About</a>
+                    <a href="#services" class="nav-text text-gray-700 hover:text-primary transition duration-200 font-medium">Services</a>
+                    <a href="#products" class="nav-text text-gray-700 hover:text-primary transition duration-200 font-medium">Products</a>
+                    <a href="#contact" class="nav-text text-gray-700 hover:text-primary transition duration-200 font-medium">Contact</a>
+                    <button class="bg-primary text-white px-6 py-2 rounded-full hover:bg-violet-700 transition duration-200 font-semibold shadow-md">
+                        Try Virtual Fitting
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-primary focus:outline-none p-2 rounded-md">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden mobile-menu border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 bg-white">
+                <a href="#home" class="nav-text block px-3 py-2 text-gray-700 hover:text-primary font-medium">Home</a>
+                <a href="#about" class="nav-text block px-3 py-2 text-gray-700 hover:text-primary font-medium">About</a>
+                <a href="#services" class="nav-text block px-3 py-2 text-gray-700 hover:text-primary font-medium">Services</a>
+                <a href="#products" class="nav-text block px-3 py-2 text-gray-700 hover:text-primary font-medium">Products</a>
+                <a href="#contact" class="nav-text block px-3 py-2 text-gray-700 hover:text-primary font-medium">Contact</a>
+                <button class="w-full text-left bg-primary text-white px-3 py-2 rounded-full hover:bg-violet-700 transition duration-200 font-semibold mt-2">
+                    Try Virtual Fitting
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-16 bg-gradient-to-br from-purple-50 via-violet-50 to-orange-50 min-h-screen flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center">
+                <div class="mb-8">
+                    <span class="inline-block bg-primary/10 text-primary px-6 py-3 rounded-full text-sm font-medium mb-6">
+                        �️ Revolutionary Virtual Try-On Technology
+                    </span>
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight mb-6">
+                        Modern Solution 
+                        <span class="text-3xl md:text-4xl lg:text-5xl font-medium bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                            (MOSU)
+                        </span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
+                        Solve everyone's daily problem with our cutting-edge Virtual Try-On technology. 
+                        Experience perfect fitting for every online purchase, anytime, anywhere.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                        <a href="#" class="bg-primary text-white px-10 py-4 rounded-full hover:bg-violet-700 transition duration-200 font-semibold text-lg shadow-lg text-center">
+                            Try Demo
+                        </a>
+                        <a href="https://forms.gle/dBMiDFUjyT8a5EKN6" class="border-2 border-secondary text-secondary px-10 py-4 rounded-full hover:bg-secondary hover:text-white transition duration-200 font-semibold text-lg text-center">
+                            Give us your thoughts!
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Hero Image/Graphics -->
+                <div class="mt-16 relative">
+                    <div class="w-full max-w-4xl mx-auto">
+                        <div class="w-full h-96 md:h-[500px] image-placeholder rounded-3xl shadow-2xl"></div>
+                    </div>
+                    <!-- Floating elements -->
+                    <div class="absolute -top-8 -left-8 w-16 h-16 bg-primary/20 rounded-full opacity-60"></div>
+                    <div class="absolute -bottom-8 -right-8 w-20 h-20 bg-secondary/30 rounded-full opacity-60"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Vision -->
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8">Our Vision</h2>
+                <div class="max-w-4xl mx-auto">
+                    <p class="text-xl md:text-2xl text-gray-600 leading-relaxed">
+                        To revolutionize online shopping worldwide by eliminating sizing uncertainties 
+                        and creating a seamless, personalized fitting experience for every customer.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Mission -->
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8">Our Mission</h2>
+                <div class="max-w-4xl mx-auto">
+                    <p class="text-xl md:text-2xl text-gray-600 leading-relaxed">
+                        To solve everyone's daily problem with innovative Virtual Try-On technology, 
+                        connecting with major online retailers like Tokopedia, Shopee, Zalora, 
+                        Uniqlo, and Amazon to make perfect fitting accessible to everyone.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Values -->
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-12">Our Values</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center p-8 bg-orange-50 rounded-2xl">
+                        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <div class="w-8 h-8 bg-orange-500 rounded-full"></div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Innovation</h3>
+                        <p class="text-gray-600 text-lg">
+                            Pioneering Virtual Try-On technology to revolutionize online shopping
+                        </p>
+                    </div>
+                    <div class="text-center p-8 bg-primary/5 rounded-2xl">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <div class="w-8 h-8 bg-primary rounded-full"></div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Accessibility</h3>
+                        <p class="text-gray-600 text-lg">
+                            Making perfect fitting accessible to everyone, everywhere
+                        </p>
+                    </div>
+                    <div class="text-center p-8 bg-orange-50 rounded-2xl">
+                        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <div class="w-8 h-8 bg-orange-500 rounded-full"></div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Problem Solving</h3>
+                        <p class="text-gray-600 text-lg">
+                            Dedicated to solving everyone's daily fitting challenges
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team -->
+            <div class="text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-16">Meet Our Team</h2>
+                
+                <!-- Founders Row -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 justify-center mb-20 max-w-3xl mx-auto">
+                    <!-- CEO & Founder -->
+                    <div class="team-card group cursor-pointer transform transition-all duration-300 hover:scale-105">
+                        <div class="relative">
+                            <div class="w-40 h-40 bg-gradient-to-br from-purple-400 via-purple-500 to-purple-600 rounded-full mx-auto mb-8 flex items-center justify-center shadow-xl transform transition-all duration-300 group-hover:shadow-2xl group-hover:rotate-6">
+                                <div class="w-28 h-28 bg-white/20 rounded-full backdrop-blur-sm flex items-center justify-center">
+                                    <div class="w-20 h-20 bg-white rounded-full opacity-90 flex items-center justify-center text-primary text-2xl font-bold">SK</div>
+                                </div>
+                            </div>
+                            <div class="absolute -top-2 -right-2 bg-gradient-to-r from-orange-400 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                                CEO
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">Siapa kek</h3>
+                        <p class="text-primary font-semibold text-lg mb-3">CEO & Founder</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">Visionary leader with 10+ years in tech, driving MOSU's mission to revolutionize online shopping</p>
+                    </div>
+                    
+                    <!-- CTO & Co-Founder -->
+                    <div class="team-card group cursor-pointer transform transition-all duration-300 hover:scale-105">
+                        <div class="relative">
+                            <div class="w-40 h-40 bg-gradient-to-br from-orange-400 via-orange-500 to-orange-600 rounded-full mx-auto mb-8 flex items-center justify-center shadow-xl transform transition-all duration-300 group-hover:shadow-2xl group-hover:-rotate-6">
+                                <div class="w-28 h-28 bg-white/20 rounded-full backdrop-blur-sm flex items-center justify-center">
+                                    <div class="w-20 h-20 bg-white rounded-full opacity-90 flex items-center justify-center text-secondary text-2xl font-bold">GS</div>
+                                </div>
+                            </div>
+                            <div class="absolute -top-2 -right-2 bg-gradient-to-r from-purple-400 to-purple-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                                CTO
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-secondary transition-colors">gatau siapa</h3>
+                        <p class="text-secondary font-semibold text-lg mb-3">CTO & Co-Founder</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">AI/ML expert and tech genius behind Virtual Try-On innovation, former Google engineer</p>
+                    </div>
+                </div>
+                
+                <!-- Core Team Row -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+                    <!-- Head of Product -->
+                    <div class="team-card group cursor-pointer transform transition-all duration-300 hover:scale-105">
+                        <div class="relative">
+                            <div class="w-32 h-32 bg-gradient-to-br from-purple-300 via-purple-400 to-purple-500 rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg transform transition-all duration-300 group-hover:shadow-xl group-hover:rotate-3">
+                                <div class="w-22 h-22 bg-white/20 rounded-full backdrop-blur-sm flex items-center justify-center">
+                                    <div class="w-16 h-16 bg-white rounded-full opacity-90 flex items-center justify-center text-primary text-lg font-bold">SY</div>
+                                </div>
+                            </div>
+                            <div class="absolute -top-1 -right-1 bg-gradient-to-r from-purple-400 to-purple-500 text-white px-2 py-1 rounded-full text-xs font-medium shadow">
+                                Product
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">siapa ya</h3>
+                        <p class="text-primary font-semibold mb-2">Head of Product</p>
+                        <p class="text-gray-600 text-sm">Crafting amazing user experiences with design thinking</p>
+                    </div>
+                    
+                    <!-- Head of Partnerships -->
+                    <div class="team-card group cursor-pointer transform transition-all duration-300 hover:scale-105">
+                        <div class="relative">
+                            <div class="w-32 h-32 bg-gradient-to-br from-orange-300 via-orange-400 to-orange-500 rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg transform transition-all duration-300 group-hover:shadow-xl group-hover:-rotate-3">
+                                <div class="w-22 h-22 bg-white/20 rounded-full backdrop-blur-sm flex items-center justify-center">
+                                    <div class="w-16 h-16 bg-white rounded-full opacity-90 flex items-center justify-center text-secondary text-lg font-bold">An</div>
+                                </div>
+                            </div>
+                            <div class="absolute -top-1 -right-1 bg-gradient-to-r from-orange-400 to-orange-500 text-white px-2 py-1 rounded-full text-xs font-medium shadow">
+                                Partnerships
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-secondary transition-colors">Anon</h3>
+                        <p class="text-secondary font-semibold mb-2">Head of Partnership</p>
+                        <p class="text-gray-600 text-sm">Building strategic alliances with global retailers</p>
+                    </div>
+                    
+                    <!-- Head of AI & ML -->
+                    <div class="team-card group cursor-pointer transform transition-all duration-300 hover:scale-105">
+                        <div class="relative">
+                            <div class="w-32 h-32 bg-gradient-to-br from-purple-300 via-orange-300 to-orange-400 rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg transform transition-all duration-300 group-hover:shadow-xl group-hover:rotate-6">
+                                <div class="w-22 h-22 bg-white/20 rounded-full backdrop-blur-sm flex items-center justify-center">
+                                    <div class="w-16 h-16 bg-white rounded-full opacity-90 flex items-center justify-center text-primary text-lg font-bold">Ah</div>
+                                </div>
+                            </div>
+                            <div class="absolute -top-1 -right-1 bg-gradient-to-r from-purple-400 to-orange-400 text-white px-2 py-1 rounded-full text-xs font-medium shadow">
+                                AI/ML
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">ahjussi</h3>
+                        <p class="text-primary font-semibold mb-2">Head of AI & Machine Learning</p>
+                        <p class="text-gray-600 text-sm">Powering intelligent fitting algorithms and computer vision</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+                    OUR SERVICES
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    What We Offer
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Revolutionary Virtual Try-On services designed to transform online shopping experiences
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition duration-200 text-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <div class="w-8 h-8 bg-primary rounded"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Virtual Try-On API</h3>
+                    <p class="text-gray-600">
+                        Integrate our advanced fitting technology directly into your e-commerce platform
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition duration-200 text-center">
+                    <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <div class="w-8 h-8 bg-orange-500 rounded"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Size Recommendations</h3>
+                    <p class="text-gray-600">
+                        AI-powered size recommendations based on body measurements and product data
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition duration-200 text-center">
+                    <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <div class="w-8 h-8 bg-orange-500 rounded"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Retailer Integration</h3>
+                    <p class="text-gray-600">
+                        Seamless integration with major retailers like Tokopedia, Shopee, and Zalora
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition duration-200 text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <div class="w-8 h-8 bg-purple-500 rounded"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">3D Visualization</h3>
+                    <p class="text-gray-600">
+                        Advanced 3D visualization technology for realistic virtual fitting experiences
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+                    OUR PRODUCTS
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Virtual Try-On Solutions
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Cutting-edge Virtual Try-On technology designed to solve everyone's daily fitting problems, 
+                    from individual shoppers to enterprise retailers.
+                </p>
+            </div>
+
+            <!-- Product 1: Measurement by MOSU -->
+            <div class="mb-20">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Measurement by MOSU</h3>
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                            Our flagship Virtual Try-On platform that revolutionizes online shopping 
+                            with accurate body measurements, real-time fitting visualization, and 
+                            personalized size recommendations for every customer.
+                        </p>
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                            Measurement by MOSU works seamlessly with major retailers like Tokopedia, 
+                            Shopee, Zalora, Uniqlo, and Amazon, ensuring perfect fits for millions 
+                            of customers worldwide, 24/7.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button class="bg-primary text-white px-8 py-3 rounded-full hover:bg-violet-700 transition duration-200 font-semibold">
+                                Try Now
+                            </button>
+                            <button class="border-2 border-secondary text-secondary px-8 py-3 rounded-full hover:bg-secondary hover:text-white transition duration-200 font-semibold">
+                                Watch Demo
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="w-full h-96 image-placeholder rounded-2xl shadow-lg"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2: MOSU for Retailers -->
+            <div class="mb-20">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 lg:order-1">
+                        <div class="w-full h-96 image-placeholder rounded-2xl shadow-lg"></div>
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">MOSU for Retailers</h3>
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                            Seamlessly integrate our Virtual Try-On technology into your e-commerce 
+                            platform with our comprehensive retailer solution. Reduce return rates, 
+                            increase customer satisfaction, and boost sales conversion.
+                        </p>
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                            Join major retailers like Tokopedia, Shopee, Zalora, Uniqlo, and Amazon 
+                            who trust MOSU to provide their customers with accurate fitting experiences 
+                            and solve everyday shopping challenges.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button class="bg-primary text-white px-8 py-3 rounded-full hover:bg-violet-700 transition duration-200 font-semibold">
+                                Partner with Us
+                            </button>
+                            <button class="border-2 border-secondary text-secondary px-8 py-3 rounded-full hover:bg-secondary hover:text-white transition duration-200 font-semibold">
+                                See Integration
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features/Process Section -->
+    <section id="features" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+                    HOW IT WORKS
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Virtual Try-On Process
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Experience the future of online shopping with our simple three-step 
+                    Virtual Try-On process that ensures perfect fitting every time.
+                </p>
+            </div>
+
+            <!-- Process Flow -->
+            <div class="mb-16">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="bg-white p-8 rounded-2xl shadow-sm">
+                        <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="text-2xl font-bold text-primary">1</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Body Measurement</h3>
+                        <p class="text-gray-600">
+                            Capture accurate body measurements using our advanced 
+                            AI-powered measurement technology in seconds.
+                        </p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-sm">
+                        <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="text-2xl font-bold text-primary">2</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Virtual Try-On</h3>
+                        <p class="text-gray-600">
+                            Visualize how clothes fit on your body with our 
+                            realistic 3D virtual fitting experience.
+                        </p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-sm">
+                        <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="text-2xl font-bold text-primary">3</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Perfect Purchase</h3>
+                        <p class="text-gray-600">
+                            Shop with confidence knowing you'll get the perfect fit 
+                            every time, reducing returns and increasing satisfaction.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Integration Grid -->
+            <div class="text-center mb-12">
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
+                    Seamless Integration with Major Retailers
+                </h3>
+                <p class="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
+                    Connect with hundreds of online stores and platforms. 
+                    Our unified system brings Virtual Try-On technology to major retailers 
+                    in Indonesia and globally, solving everyone's daily fitting problems.
+                </p>
+            </div>
+
+            <!-- Integration Icons Grid -->
+            <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mb-16">
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-200">
+                    <div class="w-12 h-12 image-placeholder rounded"></div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-200">
+                    <div class="w-12 h-12 image-placeholder rounded"></div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-200">
+                    <div class="w-12 h-12 image-placeholder rounded"></div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-200">
+                    <div class="w-12 h-12 image-placeholder rounded"></div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-200">
+                    <div class="w-12 h-12 image-placeholder rounded"></div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-200">
+                    <div class="w-12 h-12 image-placeholder rounded"></div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-200">
+                    <div class="w-12 h-12 image-placeholder rounded"></div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-200">
+                    <div class="w-12 h-12 image-placeholder rounded"></div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-200">
+                    <div class="w-12 h-12 image-placeholder rounded"></div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-200">
+                    <div class="w-12 h-12 image-placeholder rounded"></div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-200">
+                    <div class="w-12 h-12 image-placeholder rounded"></div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-200">
+                    <div class="w-12 h-12 image-placeholder rounded"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-choose-us" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+                    WHY CHOOSE US
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Why Choose MOSU?
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        MOSU (Modern Solution) is a pioneering Virtual Try-On technology company 
+                        focused on solving everyone's daily fitting problems and has been revolutionizing 
+                        online shopping experiences since our founding.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        We provide comprehensive Virtual Try-On solutions including "Measurement by MOSU" 
+                        platform, retailer integration services, and seamless connectivity with major 
+                        online shops like Tokopedia, Shopee, Zalora, Uniqlo, and Amazon.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        MOSU also provides certified integration specialists and dedicated support teams 
+                        to help retailers transform their online shopping experience, reduce return rates, 
+                        and achieve higher customer satisfaction.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-primary/5 p-6 rounded-xl">
+                            <h4 class="font-semibold text-gray-900 mb-2">🏆 Innovation Leader</h4>
+                            <p class="text-gray-600 text-sm">Cutting-edge Virtual Try-On technology</p>
+                        </div>
+                        <div class="bg-orange-50 p-6 rounded-xl">
+                            <h4 class="font-semibold text-gray-900 mb-2">⚡ Instant Results</h4>
+                            <p class="text-gray-600 text-sm">Real-time fitting visualization</p>
+                        </div>
+                        <div class="bg-orange-50 p-6 rounded-xl">
+                            <h4 class="font-semibold text-gray-900 mb-2">🔒 Data Security</h4>
+                            <p class="text-gray-600 text-sm">Secure measurement and privacy protection</p>
+                        </div>
+                        <div class="bg-purple-50 p-6 rounded-xl">
+                            <h4 class="font-semibold text-gray-900 mb-2">📞 Global Support</h4>
+                            <p class="text-gray-600 text-sm">Worldwide integration and support</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="w-full h-96 image-placeholder rounded-2xl shadow-lg"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section id="clients" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+                    OUR CLIENTS
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Trusted by Leading Retailers
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Join major retailers worldwide that trust MOSU to revolutionize their customers' shopping experiences
+                </p>
+            </div>
+
+            <!-- Client Logos Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center mb-16">
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-200 flex items-center justify-center">
+                    <div class="w-24 h-12 image-placeholder rounded"></div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-200 flex items-center justify-center">
+                    <div class="w-24 h-12 image-placeholder rounded"></div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-200 flex items-center justify-center">
+                    <div class="w-24 h-12 image-placeholder rounded"></div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-200 flex items-center justify-center">
+                    <div class="w-24 h-12 image-placeholder rounded"></div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-200 flex items-center justify-center">
+                    <div class="w-24 h-12 image-placeholder rounded"></div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-200 flex items-center justify-center">
+                    <div class="w-24 h-12 image-placeholder rounded"></div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-200 flex items-center justify-center">
+                    <div class="w-24 h-12 image-placeholder rounded"></div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-200 flex items-center justify-center">
+                    <div class="w-24 h-12 image-placeholder rounded"></div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-200 flex items-center justify-center">
+                    <div class="w-24 h-12 image-placeholder rounded"></div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-200 flex items-center justify-center">
+                    <div class="w-24 h-12 image-placeholder rounded"></div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-200 flex items-center justify-center">
+                    <div class="w-24 h-12 image-placeholder rounded"></div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-200 flex items-center justify-center">
+                    <div class="w-24 h-12 image-placeholder rounded"></div>
+                </div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="bg-white p-12 rounded-2xl shadow-sm text-center">
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-12">
+                    More than 500K+ shoppers worldwide are already using MOSU's Virtual Try-On technology
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="text-4xl md:text-5xl font-bold text-primary mb-2 stats-counter">500K+</div>
+                        <p class="text-gray-600 text-lg">Active Users</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl md:text-5xl font-bold text-primary mb-2 stats-counter">98%</div>
+                        <p class="text-gray-600 text-lg">Fitting Accuracy</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl md:text-5xl font-bold text-primary mb-2 stats-counter">15+</div>
+                        <p class="text-gray-600 text-lg">Partner Retailers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+                    TESTIMONIALS
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    What Our Partners Say About MOSU
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Discover how retailers worldwide are transforming their customer experiences with our Virtual Try-On technology
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 p-8 rounded-2xl">
+                    <div class="mb-6">
+                        <div class="flex text-yellow-400 mb-4">
+                            <span class="text-2xl">★★★★★</span>
+                        </div>
+                        <p class="text-lg text-gray-600 italic mb-6 leading-relaxed">
+                            "Overall, we are satisfied with the assistance provided by the MOSU team. 
+                            They can offer the best Virtual Try-On solutions so that we can provide maximum 
+                            customer satisfaction. We are also willing to recommend MOSU to colleagues within 
+                            and outside our organization because they can provide innovative services with 
+                            competitive integration costs."
+                        </p>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-16 h-16 bg-gray-200 rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-lg">Sarah Mitchell</h4>
+                            <p class="text-primary font-semibold">Digital Director, Fashion Retail Chain</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 p-8 rounded-2xl">
+                    <div class="mb-6">
+                        <div class="flex text-yellow-400 mb-4">
+                            <span class="text-2xl">★★★★★</span>
+                        </div>
+                        <p class="text-lg text-gray-600 italic mb-6 leading-relaxed">
+                            "The quality of delivery and performance of the MOSU team is excellent. 
+                            Using their Virtual Try-On technology has helped improve our customer 
+                            satisfaction, especially in reducing return rates and fitting complaints. 
+                            The technology integration has saved us countless customer service hours."
+                            </p>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-16 h-16 bg-gray-200 rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-lg">Marcus Chen</h4>
+                            <p class="text-primary font-semibold">Head of E-commerce, Global Fashion Brand</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button class="bg-primary text-white px-8 py-4 rounded-full hover:bg-violet-700 transition duration-200 font-semibold text-lg">
+                    Read More Testimonials
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Contact Info -->
+                <div class="text-white">
+                    <span class="inline-block bg-white/10 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+                        CONTACT US
+                    </span>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                        Connect with Our Team Today
+                    </h2>
+                    <p class="text-xl text-indigo-200 mb-12 leading-relaxed">
+                        Discover how Virtual Try-On technology can transform your customer experience. 
+                        We're here to help you integrate with the future of online shopping.
+                    </p>
+
+                    <div class="space-y-8">
+                        <!-- Head Office -->
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">Head Office</h3>
+                            <p class="text-indigo-200 mb-2">
+                                MOSU Innovation Center<br>
+                                Tech Tower, 20th Floor<br>
+                                Digital District, Jakarta 12345
+                            </p>
+                            <p class="text-indigo-200">
+                                <a href="tel:+62-21-555-0123" class="hover:text-white transition duration-200">
+                                    (+62) 21-555-0123
+                                </a>
+                            </p>
+                        </div>
+
+                        <!-- Social Media -->
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+                            <div class="flex space-x-4">
+                                <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition duration-200 cursor-pointer">
+                                    <div class="w-5 h-5 bg-white rounded-sm"></div>
+                                </div>
+                                <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition duration-200 cursor-pointer">
+                                    <div class="w-5 h-5 bg-white rounded-sm"></div>
+                                </div>
+                                <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition duration-200 cursor-pointer">
+                                    <div class="w-5 h-5 bg-white rounded-sm"></div>
+                                </div>
+                                <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition duration-200 cursor-pointer">
+                                    <div class="w-5 h-5 bg-white rounded-sm"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <p class="text-lg text-gray-600 mb-8">
+                        Ready to transform your e-commerce with Virtual Try-On technology? 
+                        Leave your details and we'll get in touch with you.
+                    </p>
+                    
+                    <form class="space-y-6">
+                        <div>
+                            <input 
+                                type="text" 
+                                placeholder="Full Name *" 
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition duration-200"
+                                required
+                            >
+                        </div>
+                        <div>
+                            <input 
+                                type="tel" 
+                                placeholder="Phone Number *" 
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition duration-200"
+                                required
+                            >
+                        </div>
+                        <div>
+                            <input 
+                                type="email" 
+                                placeholder="Business Email *" 
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition duration-200"
+                                required
+                            >
+                        </div>
+                        <div>
+                            <input 
+                                type="text" 
+                                placeholder="Company *" 
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition duration-200"
+                                required
+                            >
+                        </div>
+                        <div>
+                            <textarea 
+                                placeholder="Message *" 
+                                rows="4"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition duration-200 resize-none"
+                                required
+                            ></textarea>
+                        </div>
+                        <button 
+                            type="submit"
+                            class="w-full bg-primary text-white px-8 py-4 rounded-lg hover:bg-violet-700 transition duration-200 font-semibold text-lg"
+                        >
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo and Description -->
+                <div class="md:col-span-1">
+                    <div class="w-32 h-8 bg-gray-600 rounded mb-4"></div>
+                    <p class="text-gray-400 mb-6">
+                        Revolutionize your online shopping experience with our cutting-edge Virtual Try-On technology. 
+                        Solve everyone's daily fitting problems with MOSU.
+                    </p>
+                    <div class="flex space-x-4">
+                        <div class="social-icon"></div>
+                        <div class="social-icon"></div>
+                        <div class="social-icon"></div>
+                        <div class="social-icon"></div>
+                    </div>
+                </div>
+
+                <!-- Utility Pages -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Utility Page</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="footer-link">Sign Up</a></li>
+                        <li><a href="#" class="footer-link">My Account</a></li>
+                        <li><a href="#" class="footer-link">Reset Password</a></li>
+                        <li><a href="#" class="footer-link">404 Not Found</a></li>
+                        <li><a href="#" class="footer-link">Login</a></li>
+                    </ul>
+                </div>
+
+                <!-- Pages -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Pages</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="footer-link">Features</a></li>
+                        <li><a href="#" class="footer-link">Help Center</a></li>
+                        <li><a href="#" class="footer-link">Blog Post</a></li>
+                        <li><a href="#" class="footer-link">Careers</a></li>
+                        <li><a href="#" class="footer-link">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Other Pages -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Other Pages</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="footer-link">About</a></li>
+                        <li><a href="#" class="footer-link">Blog</a></li>
+                        <li><a href="#" class="footer-link">Customer Reviews</a></li>
+                        <li><a href="#" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-gray-700 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                        © 2024 – 2025 Modern Solution (MOSU). All Rights Reserved.
+                    </p>
+                    <div class="flex space-x-6 text-sm">
+                        <a href="#" class="footer-link">Terms & Conditions</a>
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

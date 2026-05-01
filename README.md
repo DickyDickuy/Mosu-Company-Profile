@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MOSU - Modern Solution Company Profile
 
-## Getting Started
+🚀 **Virtual Try-On Technology Company Profile Website**
 
-First, run the development server:
+## 📋 Project Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This is a modern, professional company profile website for MOSU (Modern Solution), a revolutionary Virtual Try-On technology company. The website showcases MOSU's cutting-edge solutions for solving daily problems with virtual fitting technology, featuring a clean design, smooth animations, and responsive layout.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **HTML5** - Semantic markup structure
+- **Tailwind CSS** - Utility-first CSS framework via CDN
+- **Custom CSS** - Enhanced styling and animations
+- **Vanilla JavaScript** - Interactive functionality
+- **Responsive Design** - Mobile-first approach
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## 🐛 Known Issues
 
-To learn more about Next.js, take a look at the following resources:
+- None currently reported
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📝 License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project is for educational and professional portfolio purposes.
 
-## Deploy on Vercel
+## 👨‍💻 Author
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**MOSU Development Team**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🤝 Contributing
+
+Feel free to submit issues and enhancement requests for the MOSU company profile website!
+
+## 📞 Support
+
+For questions or support regarding MOSU's Virtual Try-On technology, please contact the development team.
+
+---
+
+**⭐ Star this project if you found it helpful!**

@@ -1,40 +1,126 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
 
 export default function Home() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Close mobile menu on escape key or link click
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") setMobileMenuOpen(false);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  const closeMenu = () => setMobileMenuOpen(false);
+
   return (
     <>
       {/* Navigation */}
-      <nav className={styles.nav}>
-        <a href="#" className={styles.navLogo}>
-          <div style={{ width: 120, height: 36, overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
-            <Image src="/Logo.png" alt="MOSU Logo" width={120} height={120} style={{ objectFit: 'cover' }} />
-          </div>
-        </a>
-        <ul className={styles.navLinks}>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#tech">Tech Stack</a></li>
-        </ul>
-        <a href="#contact" className={styles.navCta}>Contact Us</a>
-      </nav>
+      <header className={styles.header}>
+        <nav className={styles.nav} aria-label="Main Navigation">
+          <a href="#" className={styles.navLogo} aria-label="MOSU - Home">
+            <div className={styles.logoWrapper}>
+              <Image
+                src="/Logo.png"
+                alt="MOSU Modern Solution Logo"
+                width={120}
+                height={36}
+                priority
+                className={styles.logoImg}
+              />
+            </div>
+          </a>
 
-      <main>
+          {/* Desktop Navigation Links */}
+          <ul className={styles.navLinks}>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#tech">Tech Stack</a></li>
+          </ul>
+
+          <div className={styles.navRight}>
+            <a
+              href="https://wa.me/6287725064056"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.navCta}
+              aria-label="Contact us via WhatsApp (opens in new tab)"
+            >
+              Contact Us
+            </a>
+
+            {/* Mobile Menu Toggle Button */}
+            <button
+              type="button"
+              className={styles.mobileMenuButton}
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
+              aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            >
+              <span className={`${styles.menuIconBar} ${mobileMenuOpen ? styles.menuIconBarOpen1 : ""}`} />
+              <span className={`${styles.menuIconBar} ${mobileMenuOpen ? styles.menuIconBarOpen2 : ""}`} />
+              <span className={`${styles.menuIconBar} ${mobileMenuOpen ? styles.menuIconBarOpen3 : ""}`} />
+            </button>
+          </div>
+        </nav>
+
+        {/* Mobile Navigation Drawer */}
+        <div
+          id="mobile-navigation"
+          className={`${styles.mobileDrawer} ${mobileMenuOpen ? styles.mobileDrawerOpen : ""}`}
+          aria-hidden={!mobileMenuOpen}
+        >
+          <ul className={styles.mobileNavLinks}>
+            <li><a href="#about" onClick={closeMenu}>About</a></li>
+            <li><a href="#services" onClick={closeMenu}>Services</a></li>
+            <li><a href="#projects" onClick={closeMenu}>Projects</a></li>
+            <li><a href="#tech" onClick={closeMenu}>Tech Stack</a></li>
+            <li className={styles.mobileCtaLi}>
+              <a
+                href="https://wa.me/6287725064056"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.mobileCta}
+                onClick={closeMenu}
+              >
+                Contact Us on WhatsApp
+              </a>
+            </li>
+          </ul>
+        </div>
+      </header>
+
+      <main id="main-content">
         {/* Hero */}
         <section className={`${styles.hero} ${styles.container}`}>
-          <h1>
+          <h1 className={styles.heroTitle}>
             Modern Problems Require<br />
-            <span className={styles.heroBlue}>Modern Solutions</span>
+            <span className={styles.heroAccent}>Modern Solutions</span>
           </h1>
           <p className={styles.heroSub}>
-            We are a student-driven tech venture that delivers professional
-            web development, IT infrastructure, and design services. 5 paid
-            contracts in 9 months — zero connections, all results.
+            We are a tech venture delivering high-impact web engineering,
+            cloud & server infrastructure.
+            <strong> 5 paid contracts delivered in 9 months</strong>
+            <br></br>
+            zero connections, purely driven by craft and results.
           </p>
           <div className={styles.heroActions}>
-            <a href="#projects" className={styles.btnPrimary}>See Our Work</a>
-            <a href="#contact" className={styles.btnOutline}>Get In Touch</a>
+            <a href="#projects" className={styles.btnPrimary}>
+              See Our Work
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="https://wa.me/6287725064056" target="_blank" rel="noopener noreferrer" className={styles.btnOutline}>
+              Get In Touch
+            </a>
           </div>
         </section>
 
@@ -45,34 +131,32 @@ export default function Home() {
               <div className={styles.aboutText}>
                 <h2 className={styles.sectionTitle}>About MOSU</h2>
                 <p>
-                  Modern Solution (MOSU) is a tech venture founded in August
-                  2024 by 8 university students with diverse technical
-                  backgrounds. We started with nothing — no clients, no
-                  network, no funding.
+                  Modern Solution (MOSU) was founded in August 2024 by 5 ambitious programmer
+                  with multidisciplinary technical expertise. We launched from scratch —
+                  relying entirely on engineering rigor and client satisfaction.
                 </p>
                 <p>
-                  Within 9 months, we secured and delivered 5 paid client
-                  contracts through the quality of our work alone. We handle
-                  everything from full-stack web development and server
-                  administration to UI/UX design and social media management.
+                  Within 9 months of our starting point, we secured and completed 5 paid client contracts across
+                  e-commerce, community platforms, corporate web systems, and industrial infrastructure.
+                  We turn ambitious product visions into production-grade digital realities.
                 </p>
               </div>
               <div className={styles.statsGrid}>
                 <div className={styles.statCard}>
                   <div className={styles.statNumber}>5+</div>
-                  <div className={styles.statLabel}>Clients Served</div>
+                  <div className={styles.statLabel}>Projects Delivered</div>
                 </div>
                 <div className={styles.statCard}>
-                  <div className={styles.statNumber}>2024</div>
-                  <div className={styles.statLabel}>Since</div>
+                  <div className={styles.statNumber}>2</div>
+                  <div className={styles.statLabel}>Years Active</div>
                 </div>
                 <div className={styles.statCard}>
-                  <div className={styles.statNumber}>8</div>
-                  <div className={styles.statLabel}>Professionals</div>
+                  <div className={styles.statNumber}>5</div>
+                  <div className={styles.statLabel}>Engineers & Designers</div>
                 </div>
                 <div className={styles.statCard}>
                   <div className={styles.statNumber}>100%</div>
-                  <div className={styles.statLabel}>Delivery Rate</div>
+                  <div className={styles.statLabel}>On-Time Delivery</div>
                 </div>
               </div>
             </div>
@@ -85,32 +169,50 @@ export default function Home() {
             <div className={styles.sectionCenter}>
               <h2 className={styles.sectionTitle}>Our Services</h2>
               <p className={styles.sectionSub}>
-                End-to-end digital solutions for businesses of all sizes.
+                End-to-end digital engineering and design solutions tailored for growth.
               </p>
             </div>
             <div className={styles.servicesGrid}>
               <div className={styles.serviceCard}>
-                <div className={styles.serviceIcon}>⚡</div>
+                <div className={styles.serviceIconWrap}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <polyline points="16 18 22 12 16 6" />
+                    <polyline points="8 6 2 12 8 18" />
+                  </svg>
+                </div>
                 <h3>Web Development</h3>
                 <p>
-                  Full-stack websites from landing pages to complex CMS using
-                  Next.js, React, MongoDB, WordPress, and PHP.
+                  High-performance web applications, dynamic marketing sites, and full-stack platforms using Next.js, React, Node.js, and modern database architectures.
                 </p>
               </div>
+
               <div className={styles.serviceCard}>
-                <div className={styles.serviceIcon}>🖥️</div>
+                <div className={styles.serviceIconWrap}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
+                    <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
+                    <line x1="6" y1="6" x2="6.01" y2="6" />
+                    <line x1="6" y1="18" x2="6.01" y2="18" />
+                  </svg>
+                </div>
                 <h3>IT Support & Server Ops</h3>
                 <p>
-                  Domain management, CPanel administration, and Linux server
-                  configuration for high-availability systems.
+                  Linux server deployment, domain & DNS infrastructure, cPanel management, email systems, and security hardening for 99.9% uptime.
                 </p>
               </div>
+
               <div className={styles.serviceCard}>
-                <div className={styles.serviceIcon}>🎨</div>
-                <h3>UI/UX & Social Media</h3>
+                <div className={styles.serviceIconWrap}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M12 19l7-7 3 3-7 7-3-3z" />
+                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+                    <path d="M2 2l7.586 7.586" />
+                    <circle cx="11" cy="11" r="2" />
+                  </svg>
+                </div>
+                <h3>UI/UX & Brand Design</h3>
                 <p>
-                  Responsive interface design and brand visibility management
-                  through strategic social media content.
+                  Intuitive interface design, structured design systems, brand identities, and responsive layouts crafted for delightful user experiences.
                 </p>
               </div>
             </div>
@@ -121,163 +223,252 @@ export default function Home() {
         <section id="projects" className={`${styles.section} ${styles.sectionAlt}`}>
           <div className={styles.container}>
             <div className={styles.sectionCenter}>
-              <h2 className={styles.sectionTitle}>Our Projects</h2>
+              <h2 className={styles.sectionTitle}>Featured Projects</h2>
               <p className={styles.sectionSub}>
-                Real projects delivered to real clients with measurable results.
+                Proven solutions delivered to real-world clients with measurable impact.
               </p>
             </div>
 
+            <div className={styles.projectsList}>
+              {/* Project 7: Randy's Portfolio */}
+              <article className={styles.projectCard}>
+                <div className={styles.projectImageContainer}>
+                  <Image
+                    src="/project-randy.png"
+                    alt="Randy CEO & Creative Visionary personal portfolio website preview"
+                    width={550}
+                    height={280}
+                    sizes="(max-width: 768px) 100vw, 550px"
+                    className={styles.projectImage}
+                  />
+                </div>
+                <div className={styles.projectInfo}>
+                  <div className={styles.projectTags}>
+                    <span className={styles.projectTag}>Personal Portfolio</span>
+                    <span className={styles.projectTag}>Creative Direction</span>
+                  </div>
+                  <h3>RANDY&apos; Portfolio</h3>
+                  <p>
+                    High-concept personal and executive portfolio for a CEO &amp; Creative Visionary.
+                    Crafted with bold typographic scale, signature balloon aesthetic, and high-impact digital storytelling.
+                  </p>
+                  <a
+                    href="https://randy.nominanetwork.tech/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.projectLink}
+                    aria-label="Visit randy.nominanetwork.tech (opens in a new tab)"
+                  >
+                    Visit randy.nominanetwork.tech ↗
+                  </a>
+                </div>
+              </article>
 
-            <div className={styles.projectCard}>
-              <Image
-                src="/project-charlotte.png"
-                alt="Charlotte Coconut Sugar - Corporate Website"
-                width={550}
-                height={280}
-                className={styles.projectImage}
-              />
-              <div className={styles.projectInfo}>
-                <h3>Charlotte Essence</h3>
-                <p>
-                  Full-stack corporate website for a coconut sugar brand. We led
-                  the development of the web platform and managed domain
-                  infrastructure and corporate email systems.
-                </p>
-                <a
-                  href="https://charlottecocosugar.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.projectLink}
-                >
-                  Visit charlottecocosugar.com →
-                </a>
-              </div>
-            </div>
+              {/* Project 1: Charlotte Essence */}
+              <article className={styles.projectCard}>
+                <div className={styles.projectImageContainer}>
+                  <Image
+                    src="/project-charlotte.png"
+                    alt="Charlotte Coconut Sugar corporate website preview"
+                    width={550}
+                    height={280}
+                    sizes="(max-width: 768px) 100vw, 550px"
+                    className={styles.projectImage}
+                  />
+                </div>
+                <div className={styles.projectInfo}>
+                  <div className={styles.projectTags}>
+                    <span className={styles.projectTag}>E-Commerce / Corporate</span>
+                    <span className={styles.projectTag}>Next.js</span>
+                  </div>
+                  <h3>Charlotte Essence</h3>
+                  <p>
+                    Full-stack corporate platform for an organic coconut sugar exporter.
+                    We spearheaded end-to-end web development, managed domain infrastructure,
+                    and configured secure corporate communication pipelines.
+                  </p>
+                  <a
+                    href="https://charlottecocosugar.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.projectLink}
+                    aria-label="Visit charlottecocosugar.com (opens in a new tab)"
+                  >
+                    Visit charlottecocosugar.com ↗
+                  </a>
+                </div>
+              </article>
 
-            <div className={styles.projectCard}>
-              <Image
-                src="/project-empatimusik.png"
-                alt="Empati Musik - Music Platform"
-                width={550}
-                height={280}
-                className={styles.projectImage}
-              />
-              <div className={styles.projectInfo}>
-                <h3>Empati Musik</h3>
-                <p>
-                  Designed and launched a music community platform on a tight
-                  deadline through solid frontend-backend team collaboration.
-                  Delivered on time with a polished user experience.
-                </p>
-                <a
-                  href="https://empati-musik.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.projectLink}
-                >
-                  Visit empati-musik.com →
-                </a>
-              </div>
-            </div>
+              {/* Project 2: Empati Musik */}
+              <article className={styles.projectCard}>
+                <div className={styles.projectImageContainer}>
+                  <Image
+                    src="/project-empatimusik.png"
+                    alt="Empati Musik platform preview"
+                    width={550}
+                    height={280}
+                    sizes="(max-width: 768px) 100vw, 550px"
+                    className={styles.projectImage}
+                  />
+                </div>
+                <div className={styles.projectInfo}>
+                  <div className={styles.projectTags}>
+                    <span className={styles.projectTag}>Community Platform</span>
+                    <span className={styles.projectTag}>UI/UX Design</span>
+                  </div>
+                  <h3>Empati Musik</h3>
+                  <p>
+                    Designed and launched an engaging music community portal on a tight schedule.
+                    Delivered a responsive user interface with streamlined navigation and interactive media discovery.
+                  </p>
+                  <a
+                    href="https://empati-musik.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.projectLink}
+                    aria-label="Visit empati-musik.com (opens in a new tab)"
+                  >
+                    Visit empati-musik.com ↗
+                  </a>
+                </div>
+              </article>
 
-            <div className={styles.projectCard}>
-              <Image
-                src="/project-hayrat.png"
-                alt="Hayrat Indonesia - Organization Website"
-                width={550}
-                height={280}
-                className={styles.projectImage}
-              />
-              <div className={styles.projectInfo}>
-                <h3>Hayrat Indonesia</h3>
-                <p>
-                  Corporate website redesign for a nonprofit organization.
-                  Delivered an authoritative, institutional web presence with a
-                  professional identity aligned to the organization's mission.
-                </p>
-                <a
-                  href="https://hayrat-compro.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.projectLink}
-                >
-                  Visit hayratindonesia.com →
-                </a>
-              </div>
-            </div>
-            <div className={styles.projectCard}>
-              <Image
-                src="/project-exionpw.png"
-                alt="Exion PW - Gaming Wiki Platform"
-                width={550}
-                height={280}
-                className={styles.projectImage}
-              />
-              <div className={styles.projectInfo}>
-                <h3>Exion PW</h3>
-                <p>
-                  Large-scale gaming wiki platform built with custom WordPress
-                  and PHP. We developed and deployed the platform and managed
-                  Linux servers to ensure stability for an active gaming
-                  community.
-                </p>
-                <a
-                  href="https://exionpw.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.projectLink}
-                >
-                  Visit exionpw.com →
-                </a>
-              </div>
-            </div>
-            <div className={styles.projectCard}>
-              <Image
-                src="/gioputrasinergi.png"
-                alt="PT GIO PUTRA SINERGI"
-                width={550}
-                height={280}
-                className={styles.projectImage}
-              />
-              <div className={styles.projectInfo}>
-                <h3>GIO PUTRA SINERGI</h3>
-                <p>
-                  GIO PUTRA SINERGI has experienced in water technologies and know-how to treat various of water and waste waters and meet to the quality. We are currently implementing a new generation of water treatment technologies such as Water Recycle, Reuse Water Plant, and complex water treatment system.
-                </p>
-                <a
-                  href="https://gioputrasinergi.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.projectLink}
-                >
-                  Visit exionpw.com →
-                </a>
-              </div>
-            </div>
-            <div className={styles.projectCard}>
-              <Image
-                src="/project-pwczone.png"
-                alt="PWC Zone - Gaming Community Portal"
-                width={550}
-                height={280}
-                className={styles.projectImage}
-              />
-              <div className={styles.projectInfo}>
-                <h3>PWC Zone</h3>
-                <p>
-                  A gaming community zone portal providing resources, guides,
-                  and community features for gamers. Built and maintained with a
-                  focus on performance and user engagement.
-                </p>
-                <a
-                  href="https://pwczone.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.projectLink}
-                >
-                  Visit pwczone.com →
-                </a>
-              </div>
+              {/* Project 3: Hayrat Indonesia */}
+              <article className={styles.projectCard}>
+                <div className={styles.projectImageContainer}>
+                  <Image
+                    src="/project-hayrat.png"
+                    alt="Hayrat Indonesia foundation website preview"
+                    width={550}
+                    height={280}
+                    sizes="(max-width: 768px) 100vw, 550px"
+                    className={styles.projectImage}
+                  />
+                </div>
+                <div className={styles.projectInfo}>
+                  <div className={styles.projectTags}>
+                    <span className={styles.projectTag}>Non-Profit Foundation</span>
+                    <span className={styles.projectTag}>Web Redesign</span>
+                  </div>
+                  <h3>Hayrat Indonesia</h3>
+                  <p>
+                    Institutional web redesign for an established humanitarian organization.
+                    Crafted an authoritative, accessible web presence reinforcing trust, donor engagement, and mission transparency.
+                  </p>
+                  <a
+                    href="https://hayrat-compro.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.projectLink}
+                    aria-label="Visit Hayrat Indonesia web platform (opens in a new tab)"
+                  >
+                    Visit hayrat-compro.vercel.app ↗
+                  </a>
+                </div>
+              </article>
+
+              {/* Project 4: Exion PW */}
+              <article className={styles.projectCard}>
+                <div className={styles.projectImageContainer}>
+                  <Image
+                    src="/project-exionpw.png"
+                    alt="Exion PW gaming wiki and platform preview"
+                    width={550}
+                    height={280}
+                    sizes="(max-width: 768px) 100vw, 550px"
+                    className={styles.projectImage}
+                  />
+                </div>
+                <div className={styles.projectInfo}>
+                  <div className={styles.projectTags}>
+                    <span className={styles.projectTag}>Gaming Wiki</span>
+                    <span className={styles.projectTag}>Linux Server Ops</span>
+                  </div>
+                  <h3>Exion PW</h3>
+                  <p>
+                    Comprehensive gaming wiki and community hub. Developed custom platform logic,
+                    optimized database search performance, and managed high-availability Linux servers.
+                  </p>
+                  <a
+                    href="https://exionpw.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.projectLink}
+                    aria-label="Visit exionpw.com (opens in a new tab)"
+                  >
+                    Visit exionpw.com ↗
+                  </a>
+                </div>
+              </article>
+
+              {/* Project 5: GIO Putra Sinergi (Fixed & Polished) */}
+              <article className={styles.projectCard}>
+                <div className={styles.projectImageContainer}>
+                  <Image
+                    src="/gioputrasinergi.png"
+                    alt="PT Gio Putra Sinergi industrial engineering website"
+                    width={550}
+                    height={280}
+                    sizes="(max-width: 768px) 100vw, 550px"
+                    className={styles.projectImage}
+                  />
+                </div>
+                <div className={styles.projectInfo}>
+                  <div className={styles.projectTags}>
+                    <span className={styles.projectTag}>Industrial Engineering</span>
+                    <span className={styles.projectTag}>Corporate Profile</span>
+                  </div>
+                  <h3>PT Gio Putra Sinergi</h3>
+                  <p>
+                    Official corporate platform for an industrial water technology leader.
+                    Presents next-generation wastewater recycling, water treatment plants, and environmental engineering solutions.
+                  </p>
+                  <a
+                    href="https://gioputrasinergi.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.projectLink}
+                    aria-label="Visit gioputrasinergi.com (opens in a new tab)"
+                  >
+                    Visit gioputrasinergi.com ↗
+                  </a>
+                </div>
+              </article>
+
+              {/* Project 6: PWC Zone */}
+              <article className={styles.projectCard}>
+                <div className={styles.projectImageContainer}>
+                  <Image
+                    src="/project-pwczone.png"
+                    alt="PWC Zone gaming portal preview"
+                    width={550}
+                    height={280}
+                    sizes="(max-width: 768px) 100vw, 550px"
+                    className={styles.projectImage}
+                  />
+                </div>
+                <div className={styles.projectInfo}>
+                  <div className={styles.projectTags}>
+                    <span className={styles.projectTag}>Gaming Community</span>
+                    <span className={styles.projectTag}>Content Portal</span>
+                  </div>
+                  <h3>PWC Zone</h3>
+                  <p>
+                    Dedicated gaming portal featuring downloadable resources, game mechanics guides,
+                    and member hubs designed for peak speed and seamless reader engagement.
+                  </p>
+                  <a
+                    href="https://pwczone.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.projectLink}
+                    aria-label="Visit pwczone.com (opens in a new tab)"
+                  >
+                    Visit pwczone.com ↗
+                  </a>
+                </div>
+              </article>
+
             </div>
           </div>
         </section>
@@ -286,23 +477,23 @@ export default function Home() {
         <section id="tech" className={styles.section}>
           <div className={styles.container}>
             <div className={styles.sectionCenter}>
-              <h2 className={styles.sectionTitle}>Tech Stack</h2>
+              <h2 className={styles.sectionTitle}>Tech Stack & Expertise</h2>
               <p className={styles.sectionSub}>
-                The technologies we work with daily.
+                Battle-tested tools and frameworks we leverage to ship robust products.
               </p>
             </div>
-            <div className={styles.techGrid}>
-              <span className={styles.techPill}>Next.js</span>
-              <span className={styles.techPill}>React</span>
-              <span className={styles.techPill}>JavaScript</span>
-              <span className={styles.techPill}>HTML & CSS</span>
-              <span className={styles.techPill}>MongoDB</span>
-              <span className={styles.techPill}>Python</span>
-              <span className={styles.techPill}>PHP</span>
-              <span className={styles.techPill}>WordPress</span>
-              <span className={styles.techPill}>Linux</span>
-              <span className={styles.techPill}>CPanel</span>
-            </div>
+            <ul className={styles.techGrid} aria-label="Technologies used">
+              <li className={styles.techPill}>Next.js</li>
+              <li className={styles.techPill}>React</li>
+              <li className={styles.techPill}>Node.js</li>
+              <li className={styles.techPill}>JavaScript / TypeScript</li>
+              <li className={styles.techPill}>MongoDB</li>
+              <li className={styles.techPill}>Python</li>
+              <li className={styles.techPill}>PHP / WordPress</li>
+              <li className={styles.techPill}>Linux & Cloud VPS</li>
+              <li className={styles.techPill}>cPanel & DNS Ops</li>
+              <li className={styles.techPill}>UI/UX Figma</li>
+            </ul>
           </div>
         </section>
 
@@ -313,22 +504,34 @@ export default function Home() {
               <div className={styles.footerBrand}>
                 <h3>MOSU</h3>
                 <p>
-                  Modern Solution — a student-driven tech venture delivering
-                  professional digital solutions for businesses.
+                  Modern Solution (MOSU) — A forward-thinking tech venture delivering
+                  high-caliber engineering and design for forward-looking businesses.
                 </p>
+                <div className={styles.footerSocial}>
+                  <a
+                    href="https://wa.me/6287725064056"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.footerWaBtn}
+                    aria-label="Chat on WhatsApp"
+                  >
+                    💬 Direct WhatsApp: +62 877-2506-4056
+                  </a>
+                </div>
               </div>
               <div className={styles.footerNav}>
-                <h4>Quick Links</h4>
+                <h4>Quick Navigation</h4>
                 <ul>
-                  <li><a href="#about">About</a></li>
+                  <li><a href="#about">About MOSU</a></li>
                   <li><a href="#services">Services</a></li>
-                  <li><a href="#projects">Projects</a></li>
+                  <li><a href="#projects">Recent Projects</a></li>
                   <li><a href="#tech">Tech Stack</a></li>
+                  <li><a href="https://wa.me/6287725064056" target="_blank" rel="noopener noreferrer">Contact Us</a></li>
                 </ul>
               </div>
             </div>
             <div className={styles.footerBottom}>
-              © {new Date().getFullYear()} Modern Solution (MOSU). All rights reserved.
+              <p>© {new Date().getFullYear()} Modern Solution (MOSU). All rights reserved.</p>
             </div>
           </div>
         </footer>

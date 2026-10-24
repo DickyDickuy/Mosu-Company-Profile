@@ -257,6 +257,8 @@
 }
 
 .projectCard {
+  position: relative;
+  cursor: pointer;
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -270,7 +272,7 @@
 .projectCard:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
-  border-color: rgba(0, 0, 0, 0.12);
+  border-color: rgba(37, 99, 235, 0.25);
 }
 
 .projectImageContainer {
@@ -345,9 +347,16 @@
   transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
-.projectLink:hover {
+.projectLink::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.projectCard:hover .projectLink {
   color: var(--primary-hover);
-  transform: translateX(2px);
+  transform: translateX(3px);
 }
 
 /* Tech Stack Section */

@@ -35,9 +35,9 @@ export default function Header() {
 
         {/* Desktop Navigation Links */}
         <ul className={styles.navLinks}>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
           <li><a href="#tech">Tech Stack</a></li>
         </ul>
 
@@ -75,9 +75,9 @@ export default function Header() {
         aria-hidden={!mobileMenuOpen}
       >
         <ul className={styles.mobileNavLinks}>
-          <li><a href="#about" onClick={closeMenu}>About</a></li>
-          <li><a href="#services" onClick={closeMenu}>Services</a></li>
           <li><a href="#projects" onClick={closeMenu}>Projects</a></li>
+          <li><a href="#services" onClick={closeMenu}>Services</a></li>
+          <li><a href="#about" onClick={closeMenu}>About</a></li>
           <li><a href="#tech" onClick={closeMenu}>Tech Stack</a></li>
           <li className={styles.mobileCtaLi}>
             <a

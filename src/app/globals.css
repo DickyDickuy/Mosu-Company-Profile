@@ -1,36 +1,34 @@
 :root {
-  --primary: #2563EB;
-  --primary-hover: #1D4ED8;
-  --primary-light: #EFF6FF;
-  --primary-glow: rgba(37, 99, 235, 0.15);
+  --primary: #0071e3;
+  --primary-hover: #0077ed;
+  --primary-light: rgba(0, 113, 227, 0.08);
+  --primary-glow: rgba(0, 113, 227, 0.12);
 
-  --text: #0F172A;
-  --text-secondary: #334155;
-  --text-muted: #64748B;
-  --text-subtle: #94A3B8;
+  --text: #1d1d1f;
+  --text-secondary: #515154;
+  --text-muted: #86868b;
+  --text-subtle: #a1a1a6;
 
-  --bg: #FFFFFF;
-  --bg-alt: #F8FAFC;
-  --bg-card: #FFFFFF;
-  --bg-dark: #0B1120;
-  --bg-dark-card: #111827;
+  --bg: #ffffff;
+  --bg-alt: #f5f5f7;
+  --bg-card: #f5f5f7;
+  --bg-card-hover: #ebebed;
 
-  --border: #E2E8F0;
-  --border-subtle: #F1F5F9;
-  --border-dark: #1E293B;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-subtle: rgba(0, 0, 0, 0.04);
+  --border-hover: rgba(0, 0, 0, 0.16);
 
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
-  --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.08);
 
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --radius-full: 9999px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 980px;
 
-  --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-normal: 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 160ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  --transition-normal: 260ms cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 html {
@@ -50,10 +48,10 @@ body {
   flex-direction: column;
   color: var(--text);
   background: var(--bg);
-  font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: 1.65;
+  line-height: 1.5;
   font-size: 16px;
 }
 
@@ -65,8 +63,8 @@ body {
 
 /* Custom Text Selection */
 ::selection {
-  background: var(--primary-light);
-  color: var(--primary-hover);
+  background: #d6e8fa;
+  color: #000000;
 }
 
 /* Accessible Skip Link */
@@ -74,20 +72,21 @@ body {
   position: absolute;
   top: -100px;
   left: 1rem;
-  background: var(--primary);
+  background: var(--text);
   color: #ffffff !important;
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--radius-sm);
-  font-weight: 600;
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 500;
   z-index: 9999;
   transition: top var(--transition-fast);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-md);
   text-decoration: none !important;
 }
 
 .skip-link:focus {
   top: 1rem;
-  outline: 3px solid var(--text);
+  outline: 2px solid var(--primary);
   outline-offset: 2px;
 }
 
@@ -100,7 +99,7 @@ body {
 a {
   color: var(--primary);
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: color var(--transition-fast), opacity var(--transition-fast);
 }
 
 a:hover {
@@ -112,15 +111,16 @@ button {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  line-height: 1.25;
+  font-weight: 600;
+  line-height: 1.15;
   color: var(--text);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
 }
 
-h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); }
-h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); }
-h3 { font-size: 1.35rem; }
+h1 { font-size: clamp(2.5rem, 5.5vw, 4rem); font-weight: 700; }
+h2 { font-size: clamp(1.85rem, 4vw, 2.75rem); }
+h3 { font-size: 1.25rem; }
 
 img {
   max-width: 100%;

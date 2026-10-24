@@ -56,86 +56,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* About */}
-        <section id="about" className={`${styles.section} ${styles.sectionAlt}`}>
-          <div className={styles.container}>
-            <div className={styles.aboutWrapper}>
-              <span className={styles.sectionEyebrow}>About MOSU</span>
-              <h2 className={styles.sectionTitle}>Crafted with engineering rigor and relentless focus.</h2>
-              <div className={styles.aboutGrid}>
-                <p>
-                  Modern Solution (MOSU) was founded in August 2024 by 5 ambitious programmers
-                  with multidisciplinary technical expertise. We launched from scratch —
-                  relying entirely on engineering rigor, precision, and client satisfaction.
-                </p>
-                <p>
-                  Within 9 months of our starting point, we secured and completed 5 paid client contracts across
-                  e-commerce, community platforms, corporate web systems, and industrial infrastructure.
-                  We turn ambitious product visions into production-grade digital realities.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Services */}
-        <section id="services" className={styles.section}>
-          <div className={styles.container}>
-            <div className={styles.sectionCenter}>
-              <span className={styles.sectionEyebrow}>Capabilities</span>
-              <h2 className={styles.sectionTitle}>Engineered for performance and scale.</h2>
-              <p className={styles.sectionSub}>
-                End-to-end digital engineering and design solutions tailored for growth.
-              </p>
-            </div>
-            <div className={styles.servicesGrid}>
-              <div className={styles.serviceCard}>
-                <div className={styles.serviceIconWrap}>
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <polyline points="16 18 22 12 16 6" />
-                    <polyline points="8 6 2 12 8 18" />
-                  </svg>
-                </div>
-                <h3>Web Development</h3>
-                <p>
-                  High-performance web applications, dynamic marketing sites, and full-stack platforms using Next.js, React, Node.js, and modern database architectures.
-                </p>
-              </div>
-
-              <div className={styles.serviceCard}>
-                <div className={styles.serviceIconWrap}>
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
-                    <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
-                    <line x1="6" y1="6" x2="6.01" y2="6" />
-                    <line x1="6" y1="18" x2="6.01" y2="18" />
-                  </svg>
-                </div>
-                <h3>IT Support &amp; Server Ops</h3>
-                <p>
-                  Linux server deployment, domain &amp; DNS infrastructure, cPanel management, email systems, and security hardening for 99.9% uptime.
-                </p>
-              </div>
-
-              <div className={styles.serviceCard}>
-                <div className={styles.serviceIconWrap}>
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M12 19l7-7 3 3-7 7-3-3z" />
-                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
-                    <path d="M2 2l7.586 7.586" />
-                    <circle cx="11" cy="11" r="2" />
-                  </svg>
-                </div>
-                <h3>UI/UX &amp; Brand Design</h3>
-                <p>
-                  Intuitive interface design, structured design systems, brand identities, and responsive layouts crafted for delightful user experiences.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Projects */}
+        {/* Projects (Above the fold proof) */}
         <section id="projects" className={`${styles.section} ${styles.sectionAlt}`}>
           <div className={styles.container}>
             <div className={styles.sectionCenter}>
@@ -388,6 +309,85 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Services */}
+        <section id="services" className={styles.section}>
+          <div className={styles.container}>
+            <div className={styles.sectionCenter}>
+              <span className={styles.sectionEyebrow}>Capabilities</span>
+              <h2 className={styles.sectionTitle}>Engineered for performance and scale.</h2>
+              <p className={styles.sectionSub}>
+                End-to-end digital engineering and design solutions tailored for growth.
+              </p>
+            </div>
+            <div className={styles.servicesGrid}>
+              <div className={styles.serviceCard}>
+                <div className={styles.serviceIconWrap}>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <polyline points="16 18 22 12 16 6" />
+                    <polyline points="8 6 2 12 8 18" />
+                  </svg>
+                </div>
+                <h3>Web Development</h3>
+                <p>
+                  High-performance web applications, dynamic marketing sites, and full-stack platforms using Next.js, React, Node.js, and modern database architectures.
+                </p>
+              </div>
+
+              <div className={styles.serviceCard}>
+                <div className={styles.serviceIconWrap}>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
+                    <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
+                    <line x1="6" y1="6" x2="6.01" y2="6" />
+                    <line x1="6" y1="18" x2="6.01" y2="18" />
+                  </svg>
+                </div>
+                <h3>IT Support &amp; Server Ops</h3>
+                <p>
+                  Linux server deployment, domain &amp; DNS infrastructure, cPanel management, email systems, and security hardening for 99.9% uptime.
+                </p>
+              </div>
+
+              <div className={styles.serviceCard}>
+                <div className={styles.serviceIconWrap}>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M12 19l7-7 3 3-7 7-3-3z" />
+                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+                    <path d="M2 2l7.586 7.586" />
+                    <circle cx="11" cy="11" r="2" />
+                  </svg>
+                </div>
+                <h3>UI/UX &amp; Brand Design</h3>
+                <p>
+                  Intuitive interface design, structured design systems, brand identities, and responsive layouts crafted for delightful user experiences.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* About */}
+        <section id="about" className={`${styles.section} ${styles.sectionAlt}`}>
+          <div className={styles.container}>
+            <div className={styles.aboutWrapper}>
+              <span className={styles.sectionEyebrow}>About MOSU</span>
+              <h2 className={styles.sectionTitle}>Crafted with engineering rigor and relentless focus.</h2>
+              <div className={styles.aboutGrid}>
+                <p>
+                  Modern Solution (MOSU) was founded in August 2024 by 5 ambitious programmers
+                  with multidisciplinary technical expertise. We launched from scratch —
+                  relying entirely on engineering rigor, precision, and client satisfaction.
+                </p>
+                <p>
+                  Within 9 months of our starting point, we secured and completed 5 paid client contracts across
+                  e-commerce, community platforms, corporate web systems, and industrial infrastructure.
+                  We turn ambitious product visions into production-grade digital realities.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Tech Stack */}
         <section id="tech" className={styles.section}>
           <div className={styles.container}>
@@ -437,9 +437,9 @@ export default function Home() {
               <div className={styles.footerNav}>
                 <h4>Navigation</h4>
                 <ul>
-                  <li><a href="#about">About MOSU</a></li>
-                  <li><a href="#services">Services</a></li>
                   <li><a href="#projects">Recent Projects</a></li>
+                  <li><a href="#services">Services</a></li>
+                  <li><a href="#about">About MOSU</a></li>
                   <li><a href="#tech">Tech Stack</a></li>
                   <li><a href="https://wa.me/6287725064056" target="_blank" rel="noopener noreferrer">Contact Us</a></li>
                 </ul>

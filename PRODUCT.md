@@ -43,6 +43,8 @@ Client acquisition, portfolio presentation, corporate inquiries, direct communic
 - PT Gio Putra Sinergi (`gioputrasinergi.com`)
 - PWC Zone (`pwczone.com`)
 - Randy's Portfolio (`randy.nominanetwork.tech`)
+- Nomina Creative (`nomina-creative.com`)
+
 
 
 ## Product Principles

@@ -147,7 +147,41 @@ export default function Home() {
             </div>
 
             <div className={styles.projectsGrid}>
-              {/* Project 1: Randy's Portfolio */}
+              {/* Project 1: Nomina Creative */}
+              <article className={styles.projectCard}>
+                <div className={styles.projectImageContainer}>
+                  <Image
+                    src="/project-nomina.png"
+                    alt="Nomina Creative Agency and Event Organizer website preview"
+                    width={550}
+                    height={300}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 550px"
+                    className={styles.projectImage}
+                  />
+                </div>
+                <div className={styles.projectInfo}>
+                  <div className={styles.projectTags}>
+                    <span className={styles.projectTag}>Creative Agency</span>
+                    <span className={styles.projectTag}>Event Production</span>
+                  </div>
+                  <h3>Nomina Creative</h3>
+                  <p>
+                    Official website for a multidisciplinary creative agency and event production studio.
+                    Engineered a modern digital archive showcasing high-profile client productions, brand narratives, and end-to-end event execution.
+                  </p>
+                  <a
+                    href="https://nomina-creative.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.projectLink}
+                    aria-label="Visit nomina-creative.com (opens in a new tab)"
+                  >
+                    Explore website <span aria-hidden="true">›</span>
+                  </a>
+                </div>
+              </article>
+
+              {/* Project 2: Randy's Portfolio */}
               <article className={styles.projectCard}>
                 <div className={styles.projectImageContainer}>
                   <Image
@@ -317,7 +351,7 @@ export default function Home() {
                 </div>
               </article>
 
-              {/* Project 6: PT Gio Putra Sinergi */}
+              {/* Project 7: PT Gio Putra Sinergi */}
               <article className={styles.projectCard}>
                 <div className={styles.projectImageContainer}>
                   <Image
@@ -351,7 +385,7 @@ export default function Home() {
                 </div>
               </article>
 
-              {/* Project 7: PWC Zone */}
+              {/* Project 8: PWC Zone */}
               <article className={styles.projectCard}>
                 <div className={styles.projectImageContainer}>
                   <Image

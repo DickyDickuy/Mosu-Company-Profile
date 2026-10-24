@@ -31,7 +31,7 @@
 }
 
 .heroAccent {
-  color: var(--text-muted);
+  color: var(--primary);
 }
 
 .heroSub {
@@ -123,7 +123,7 @@
   font-size: clamp(2.2rem, 4vw, 3.25rem);
   font-weight: 700;
   letter-spacing: -0.04em;
-  color: var(--text);
+  color: var(--primary);
   line-height: 1;
   margin-bottom: 0.4rem;
 }
@@ -228,8 +228,8 @@
   width: 44px;
   height: 44px;
   border-radius: var(--radius-md);
-  background: var(--bg-alt);
-  color: var(--text);
+  background: var(--primary-light);
+  color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -308,13 +308,13 @@
 }
 
 .projectTag {
-  background: var(--bg-alt);
-  color: var(--text-secondary);
+  background: var(--primary-light);
+  color: var(--primary);
   font-size: 0.72rem;
-  font-weight: 500;
+  font-weight: 600;
   padding: 0.25rem 0.65rem;
   border-radius: var(--radius-full);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid rgba(37, 99, 235, 0.15);
   letter-spacing: -0.01em;
 }
 

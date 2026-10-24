@@ -62,7 +62,7 @@
 
 .navLinks a:hover {
   opacity: 1;
-  color: #000000;
+  color: var(--primary);
 }
 
 .navRight {

@@ -1,8 +1,8 @@
 :root {
-  --primary: #0071e3;
-  --primary-hover: #0077ed;
-  --primary-light: rgba(0, 113, 227, 0.08);
-  --primary-glow: rgba(0, 113, 227, 0.12);
+  --primary: #2563EB;
+  --primary-hover: #1D4ED8;
+  --primary-light: #EFF6FF;
+  --primary-glow: rgba(37, 99, 235, 0.15);
 
   --text: #1d1d1f;
   --text-secondary: #515154;
@@ -63,8 +63,8 @@ body {
 
 /* Custom Text Selection */
 ::selection {
-  background: #d6e8fa;
-  color: #000000;
+  background: var(--primary-light);
+  color: var(--primary-hover);
 }
 
 /* Accessible Skip Link */

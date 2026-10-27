@@ -4,6 +4,10 @@
   --primary-light: #EFF6FF;
   --primary-glow: rgba(37, 99, 235, 0.15);
 
+  --tier-starter: #10B981;
+  --tier-business: #2563EB;
+  --tier-custom: #7C3AED;
+
   --text: #1d1d1f;
   --text-secondary: #515154;
   --text-muted: #86868b;

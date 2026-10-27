@@ -1,6 +1,7 @@
 import styles from "./page.module.css";
 import Image from "next/image";
 import Header from "../components/Header/Header";
+import Pricing from "../components/Pricing/Pricing";
 
 export default function Home() {
   return (
@@ -366,6 +367,9 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Pricing & Service Packages */}
+        <Pricing />
+
         {/* About */}
         <section id="about" className={`${styles.section} ${styles.sectionAlt}`}>
           <div className={styles.container}>
@@ -439,6 +443,7 @@ export default function Home() {
                 <ul>
                   <li><a href="#projects">Recent Projects</a></li>
                   <li><a href="#services">Services</a></li>
+                  <li><a href="#pricing">Pricing</a></li>
                   <li><a href="#about">About MOSU</a></li>
                   <li><a href="#tech">Tech Stack</a></li>
                   <li><a href="https://wa.me/6287725064056" target="_blank" rel="noopener noreferrer">Contact Us</a></li>

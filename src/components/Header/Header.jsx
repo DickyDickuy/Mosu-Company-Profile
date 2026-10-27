@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./Header.module.css";
 
 export default function Header() {
@@ -20,7 +21,7 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <nav className={styles.nav} aria-label="Main Navigation">
-        <a href="#" className={styles.navLogo} aria-label="MOSU - Home">
+        <Link href="/" className={styles.navLogo} aria-label="MOSU - Home">
           <div className={styles.logoWrapper}>
             <Image
               src="/Logo.png"
@@ -31,14 +32,15 @@ export default function Header() {
               className={styles.logoImg}
             />
           </div>
-        </a>
+        </Link>
 
         {/* Desktop Navigation Links */}
         <ul className={styles.navLinks}>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#tech">Tech Stack</a></li>
+          <li><Link href="/#projects">Projects</Link></li>
+          <li><Link href="/#services">Services</Link></li>
+          <li><Link href="/#pricing">Pricing</Link></li>
+          <li><Link href="/#about">About</Link></li>
+          <li><Link href="/#tech">Tech Stack</Link></li>
         </ul>
 
         <div className={styles.navRight}>
@@ -75,10 +77,11 @@ export default function Header() {
         aria-hidden={!mobileMenuOpen}
       >
         <ul className={styles.mobileNavLinks}>
-          <li><a href="#projects" onClick={closeMenu}>Projects</a></li>
-          <li><a href="#services" onClick={closeMenu}>Services</a></li>
-          <li><a href="#about" onClick={closeMenu}>About</a></li>
-          <li><a href="#tech" onClick={closeMenu}>Tech Stack</a></li>
+          <li><Link href="/#projects" onClick={closeMenu}>Projects</Link></li>
+          <li><Link href="/#services" onClick={closeMenu}>Services</Link></li>
+          <li><Link href="/#pricing" onClick={closeMenu}>Pricing</Link></li>
+          <li><Link href="/#about" onClick={closeMenu}>About</Link></li>
+          <li><Link href="/#tech" onClick={closeMenu}>Tech Stack</Link></li>
           <li className={styles.mobileCtaLi}>
             <a
               href="https://wa.me/6287725064056"

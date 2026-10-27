@@ -57,9 +57,18 @@ export default function Pricing() {
 
         <div className={styles.pricingGrid} role="radiogroup" aria-label="MOSU Service Packages">
           {/* Card 1: Web Presence & Company Profile */}
-          <label
+          <div
             className={`${styles.pricingCard} ${selectedTier === "starter" ? styles.pricingCardSelected : ""}`}
-            htmlFor="tier-starter"
+            onClick={() => setSelectedTier("starter")}
+            role="radio"
+            aria-checked={selectedTier === "starter"}
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === " " || e.key === "Enter") {
+                e.preventDefault();
+                setSelectedTier("starter");
+              }
+            }}
           >
             <input
               type="radio"
@@ -69,6 +78,7 @@ export default function Pricing() {
               checked={selectedTier === "starter"}
               onChange={() => setSelectedTier("starter")}
               className={styles.radioInput}
+              tabIndex={-1}
             />
             <div className={styles.cardHeader}>
               <h3 className={styles.cardTitle}>{TIERS.starter.title}</h3>
@@ -105,12 +115,21 @@ export default function Pricing() {
                 {selectedTier === "starter" ? "Selected ✓" : "Click to select"}
               </span>
             </div>
-          </label>
+          </div>
 
           {/* Card 2: Dynamic Business Web & Portal */}
-          <label
+          <div
             className={`${styles.pricingCard} ${selectedTier === "business" ? styles.pricingCardSelected : ""}`}
-            htmlFor="tier-business"
+            onClick={() => setSelectedTier("business")}
+            role="radio"
+            aria-checked={selectedTier === "business"}
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === " " || e.key === "Enter") {
+                e.preventDefault();
+                setSelectedTier("business");
+              }
+            }}
           >
             <input
               type="radio"
@@ -120,6 +139,7 @@ export default function Pricing() {
               checked={selectedTier === "business"}
               onChange={() => setSelectedTier("business")}
               className={styles.radioInput}
+              tabIndex={-1}
             />
             <div className={styles.cardHeader}>
               <h3 className={styles.cardTitle}>{TIERS.business.title}</h3>
@@ -156,7 +176,7 @@ export default function Pricing() {
                 {selectedTier === "business" ? "Selected ✓" : "Click to select"}
               </span>
             </div>
-          </label>
+          </div>
 
           {/* Card 3: Inventory & Warehouse System (Interactive Link to Configurator) */}
           <Link

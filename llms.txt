@@ -1,0 +1,64 @@
+# Modern Solution (MOSU) — AI Context & Navigation Map
+
+> Modern Solution (MOSU) is a student-founded digital technology studio delivering production-grade web applications, cloud infrastructure, and human-centric UI/UX design.
+> Repository: `mosu-web`
+> Stack: Next.js 16.2.4 (App Router), React 19.2.4, Vanilla CSS Modules (`*.module.css`), Plus Jakarta Sans.
+
+---
+
+## 🧭 Mandatory AI Agent Reading Order
+
+Before proposing architecture, writing code, or making modifications, AI agents must read files in this exact sequence:
+
+1. **`AGENTS.md`** (or `CLAUDE.md`)
+   - Mandatory engineering rules, Next.js 16 guardrails, active skills (`/graphify`, `/antislop-*`, `/ponytail`, `/modern-web-guidance`), and MCP Tool Routing & Execution Profile.
+2. **`BRAIN.md`**
+   - Short-term working memory: today's active tasks, work in progress, and immediate backlog.
+3. **`graphify-out/GRAPH_REPORT.md`**
+   - Codebase knowledge graph: architecture clusters, god nodes, dependencies, and component relationships.
+4. **`PRODUCT.md`**
+   - Brand positioning, verified client deliverables, customer profile, constraints, and product principles.
+5. **`DESIGN.md`**
+   - Design system tokens: brand colors (`#2563EB`), typography (`Plus Jakarta Sans`), spacing, elevation, and layout rules.
+6. **`CHANGELOG.md`**
+   - Chronological release history and completed engineering milestones.
+
+---
+
+## 🗺️ Codebase Knowledge Graph (`graphify-out/`)
+
+This repository uses `/graphify` to maintain an up-to-date architectural knowledge graph:
+- **`graphify-out/GRAPH_REPORT.md`**: Human and agent-readable summary of modules, god nodes, and community clusters.
+- **`graphify-out/graph.json`**: Raw GraphRAG-ready node and edge relationships.
+- **`graphify-out/graph.html`**: Interactive visual representation of the codebase.
+- **Agent Instruction**: When exploring unfamiliar dependencies or diagnosing multi-file architecture, query the graph first (or inspect `graphify-out/GRAPH_REPORT.md`) before traversing raw files. Keep the graph synchronized after substantial code changes via `/graphify --update`.
+
+---
+
+## 📁 Key File Locations & Directory Structure
+
+- **`src/app/`**: Next.js App Router core
+  - `layout.js`: Global root layout, metadata, and font declarations (`Plus Jakarta Sans`).
+  - `globals.css`: Design tokens, CSS custom properties, and reset styles.
+  - `page.js`: Main company profile landing page (Hero, Metrics, Projects Showcase, Services, Pricing, About, Tech Stack, Contact).
+  - `page.module.css`: Scoped CSS styles for the home page.
+  - `inventory-system/page.js`: Dedicated route for the interactive Inventory & Warehouse System configurator.
+  - `inventory-system/page.module.css`: Scoped styling for the configurator page.
+- **`src/components/`**: Reusable UI components
+  - `Header/Header.jsx`: Responsive sticky navigation bar with accessible mobile menu drawer (`Header.module.css`).
+  - `Pricing/Pricing.jsx`: Interactive service packages (`starter` vs `business` + custom) with dynamic WhatsApp link generator (`Pricing.module.css`).
+  - `InventoryConfigurator/InventoryConfigurator.jsx`: Interactive modular estimation tool for inventory systems (`InventoryConfigurator.module.css`).
+- **`src/data/`**: Static schemas & datasets
+  - `inventorySystem.js`: Modular pricing structure, tiers, core features, and add-on options for warehouse clients.
+- **`public/`**: Static assets
+  - `Logo.png`: Primary MOSU brand mark.
+  - `project-*.png`: Verifiable client portfolio screenshots (Nomina Creative, Charlotte Essence, Empati Musik, Hayrat, Exion PW, PWC Zone, Gio Putra Sinergi, Randy's Portfolio).
+
+---
+
+## ⚡ Operational Quick Reference
+
+- **Development Server:** `pnpm dev` (or `npm run dev`)
+- **Production Build:** `pnpm build`
+- **Lint Validation:** `pnpm run lint` (ESLint 9)
+- **Primary WhatsApp Inquiries:** `https://wa.me/6287725064056`

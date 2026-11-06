@@ -38,9 +38,9 @@ export default function Header() {
         <ul className={styles.navLinks}>
           <li><Link href="/#projects">Projects</Link></li>
           <li><Link href="/#services">Services</Link></li>
-          <li><Link href="/#pricing">Pricing</Link></li>
-          <li><Link href="/#about">About</Link></li>
           <li><Link href="/#tech">Tech Stack</Link></li>
+          <li><Link href="/#about">About</Link></li>
+          <li><Link href="/#pricing">Pricing</Link></li>
         </ul>
 
         <div className={styles.navRight}>
@@ -79,9 +79,9 @@ export default function Header() {
         <ul className={styles.mobileNavLinks}>
           <li><Link href="/#projects" onClick={closeMenu}>Projects</Link></li>
           <li><Link href="/#services" onClick={closeMenu}>Services</Link></li>
-          <li><Link href="/#pricing" onClick={closeMenu}>Pricing</Link></li>
-          <li><Link href="/#about" onClick={closeMenu}>About</Link></li>
           <li><Link href="/#tech" onClick={closeMenu}>Tech Stack</Link></li>
+          <li><Link href="/#about" onClick={closeMenu}>About</Link></li>
+          <li><Link href="/#pricing" onClick={closeMenu}>Pricing</Link></li>
           <li className={styles.mobileCtaLi}>
             <a
               href="https://wa.me/6287725064056"

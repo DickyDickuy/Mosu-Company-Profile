@@ -275,6 +275,54 @@
   border-color: rgba(37, 99, 235, 0.25);
 }
 
+/* Flagship Full-Width Project Card */
+.projectCardFeatured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  align-items: stretch;
+}
+
+.projectCardFeatured .projectImageContainer {
+  aspect-ratio: auto;
+  height: 100%;
+  min-height: 320px;
+}
+
+.projectCardFeatured .projectInfo {
+  padding: 2.25rem 2.25rem 2.5rem;
+  justify-content: center;
+}
+
+/* Archived Project Card (Non-Clickable) */
+.projectCardArchived {
+  cursor: default;
+}
+
+.projectCardArchived:hover {
+  transform: none;
+  box-shadow: var(--shadow-sm);
+  border-color: var(--border);
+}
+
+.projectCardArchived:hover .projectImage {
+  transform: none;
+}
+
+.projectArchiveBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 0.82rem;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-full);
+  width: fit-content;
+}
+
 .projectImageContainer {
   position: relative;
   width: 100%;
@@ -371,21 +419,34 @@
 }
 
 .techPill {
-  background: var(--bg-alt);
+  background: var(--bg);
   border: 1px solid var(--border);
-  padding: 0.55rem 1.25rem;
+  padding: 0.55rem 1.15rem;
   border-radius: var(--radius-full);
   font-weight: 500;
   font-size: 0.88rem;
   color: var(--text);
   box-shadow: var(--shadow-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   transition: all var(--transition-fast);
 }
 
 .techPill:hover {
   border-color: rgba(0, 0, 0, 0.18);
-  background: var(--bg);
-  transform: translateY(-1px);
+  background: var(--bg-alt);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.techIcon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Apple-style Light Footer */
@@ -491,6 +552,22 @@
 
   .projectsGrid {
     grid-template-columns: 1fr;
+  }
+
+  .projectCardFeatured {
+    grid-column: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .projectCardFeatured .projectImageContainer {
+    aspect-ratio: 16 / 9;
+    height: auto;
+    min-height: 0;
+  }
+
+  .projectCardFeatured .projectInfo {
+    padding: 1.75rem 1.75rem 2rem;
   }
 
   .footerGrid {

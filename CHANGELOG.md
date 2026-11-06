@@ -7,7 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [Unreleased] - 2026-11-06
+## [Unreleased]
+
+---
+
+## [0.4.0] - 2026-11-06
+
+### Added
+- **Featured Projects Expansion:**
+  - Added **PT Krakatau Baja Konstruksi** (`https://www.bajakonstruksi.co.id/compro/`) as a full-width 2-column flagship showcase card with 16:9 screenshot.
+  - Added **Charlotte Vanilla House** (`https://charlottevanillahouse.com`) B2B export platform showcase with high-res screenshot.
+  - Added **PPTQ Muhammadiyah Ibnu Juraimi** (`https://ppsb.ibnujuraimi.ponpes.id/`) online student admissions portal showcase with high-res screenshot.
+- **Tech Stack & Tools Modernization:**
+  - Expanded tools with 16 colored inline SVG brand icons: `Dokploy`, `Astro`, `n8n`, `Tauri`, `Laravel`, `Docker`, `PostgreSQL`, `Cloudflare`, `Next.js`, `React`, `TypeScript`, `Node.js`, `Python`, `MongoDB`, `Linux & Cloud VPS`, and `Figma`.
+- **Delivered Archive Badge Pattern:**
+  - Replaced dead external links for 4 offline client domains (`randy.nominanetwork.tech`, `charlottecocosugar.com`, `exionpw.com`, `pwczone.com`) with non-clickable `Delivered Archive` status badges, preserving verified contracts without dead links (R-26).
+
+### Changed
+- **Page Narrative & Navigation Restructuring:**
+  - Reordered desktop, mobile drawer, and footer navigation links to conversion-first layout: `Projects` -> `Services` -> `Tech Stack` -> `About` -> `Pricing`.
+  - Scorecard metrics updated to `20+ Projects Delivered`, `99.9% Server Uptime`, `5 Engineers & Designers`, and `100% On-Time Delivery`.
+  - Synchronized Hero and About copy to reflect 20+ delivered projects.
+  - Replaced all em dashes (`—`) across UI copy in compliance with `/antislop-copywriting` (R-02).
 
 ### Added
 - **AI Context & Navigation System:**
